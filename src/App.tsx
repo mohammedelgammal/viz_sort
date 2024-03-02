@@ -1,10 +1,10 @@
-import { ConfigProvider } from "antd";
 import Layout from "./Layout";
+import ThemeProvider from "./contexts/ThemeProvider";
 
 export default (): JSX.Element => {
   return (
-    <ConfigProvider>
+    <ThemeProvider>
       <Layout />
-    </ConfigProvider>
+    </ThemeProvider>
   );
 };

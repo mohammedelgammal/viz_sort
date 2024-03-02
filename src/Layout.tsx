@@ -1,13 +1,7 @@
 import { Layout } from "antd";
+import { Header } from "components/index";
 
-const { Header, Footer, Sider, Content } = Layout;
-
-const headerStyle: React.CSSProperties = {
-  textAlign: "center",
-  color: "#fff",
-  paddingInline: 48,
-  backgroundColor: "#4096ff",
-};
+const { Footer, Sider, Content } = Layout;
 
 const contentStyle: React.CSSProperties = {
   textAlign: "center",
@@ -37,7 +31,7 @@ export default (): JSX.Element => {
   return (
     <Layout style={layoutStyle}>
       <Layout>
-        <Header style={headerStyle}>Header</Header>
+        <Header />
         <Content style={contentStyle}>Content</Content>
         <Footer style={footerStyle}>Footer</Footer>
       </Layout>

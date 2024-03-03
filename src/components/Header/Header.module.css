@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 700;
+  color: #B2B377;
+}
+
+.logo > span {
+  color: #D2D180;
+}

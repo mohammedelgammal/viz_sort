@@ -1,8 +1,8 @@
-import { Flex, Switch, Typography } from "antd";
 import { useContext } from "react";
+import { Flex, Switch, Typography } from "antd";
+import { MoonFilled, SunFilled } from "@ant-design/icons";
 import themeContext from "src/contexts/themeContext";
 import Style from "./Header.module.css";
-import { MoonFilled, SunFilled } from "@ant-design/icons";
 
 export default (): JSX.Element => {
   const { setDark } = useContext(themeContext);

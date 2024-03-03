@@ -1,7 +1,7 @@
 import { Layout } from "antd";
-import { Header } from "components/index";
+import { Header, Footer } from "components/index";
 
-const { Footer, Sider, Content } = Layout;
+const { Sider, Content } = Layout;
 
 const layoutStyle = {
   overflow: "hidden",
@@ -15,9 +15,9 @@ export default (): JSX.Element => {
       <Layout>
         <Header />
         <Content>Content</Content>
-        <Footer>Footer</Footer>
+        <Footer />
       </Layout>
-      <Sider>Sider</Sider>
+      <Sider collapsible>Sider</Sider>
     </Layout>
   );
 };

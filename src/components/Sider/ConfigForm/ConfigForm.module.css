@@ -1,5 +1,6 @@
 .form {
   margin-top: 40px;
+  margin-inline: 20px;
 }
 
 .inputStack {
@@ -10,7 +11,7 @@
 .submit {
   justify-content: space-between;
   align-items: center;
-  gap:10px;
+  gap: 10px;
 }
 
 .submit > button {

@@ -33,7 +33,10 @@ export default (): JSX.Element => {
           <span>Length</span>
         </Flex>
         <Flex className={Style.submit}>
-          <Button type="primary" icon={<EyeOutlined />}>
+          <Button
+            type="primary"
+            icon={<EyeOutlined />}
+          >
             Visualize
           </Button>
           <Button type="default" icon={<ReloadOutlined />} />

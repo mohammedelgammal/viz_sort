@@ -10,7 +10,6 @@ export default (): JSX.Element => {
 
   return (
     <Sider
-      className={Style.sider}
       collapsible
       reverseArrow
       width={350}
@@ -20,7 +19,7 @@ export default (): JSX.Element => {
       <Typography.Title level={4} className={Style.title}>
         {isCollapsed ? <SettingOutlined /> : "Configurations"}
       </Typography.Title>
-      <ConfigForm />
+      {!isCollapsed && <ConfigForm />}
     </Sider>
   );
 };

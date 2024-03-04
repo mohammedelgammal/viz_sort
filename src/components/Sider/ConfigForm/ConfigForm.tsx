@@ -1,4 +1,4 @@
-import { Button, Flex, Select, Slider } from "antd";
+import { Button, Flex, Select, Slider, Typography } from "antd";
 import { EyeOutlined, ReloadOutlined } from "@ant-design/icons";
 import algoOptions from "./data";
 import Style from "./ConfigForm.module.css";
@@ -22,7 +22,7 @@ export default (): JSX.Element => {
             className={Style.slider}
             tooltip={{ formatter: speedFormatter }}
           />
-          <span>Speed</span>
+          <Typography.Text className={Style.label}>Speed</Typography.Text>
         </Flex>
         <Flex>
           <Slider
@@ -30,13 +30,10 @@ export default (): JSX.Element => {
             tooltip={{ formatter: lengthFormatter }}
             min={0.5}
           />
-          <span>Length</span>
+          <Typography.Text className={Style.label}>Length</Typography.Text>
         </Flex>
         <Flex className={Style.submit}>
-          <Button
-            type="primary"
-            icon={<EyeOutlined />}
-          >
+          <Button type="primary" icon={<EyeOutlined />}>
             Visualize
           </Button>
           <Button type="default" icon={<ReloadOutlined />} />

@@ -9,13 +9,14 @@ interface ThemeProviderProps {
 export default ({ children }: ThemeProviderProps): JSX.Element => {
   const [isDark, setDark] = useState<boolean>(false);
   const algorithm = isDark ? theme.darkAlgorithm : theme.defaultAlgorithm;
-  const colorBgBase = isDark ? "#092635" : "#f0f2f5";
-
+  const token = {
+    colorBgBase: isDark ? "#222831" : "#f0f2f5",
+    colorPrimary: isDark ? "#B2B377" : "#393E46",
+    colorText: isDark ? "#EEEEEE" : "#393E46",
+  };
   return (
     <ThemeContext.Provider value={{ setDark }}>
-      <ConfigProvider theme={{ algorithm, token: { colorBgBase } }}>
-        {children}
-      </ConfigProvider>
+      <ConfigProvider theme={{ algorithm, token }}>{children}</ConfigProvider>
     </ThemeContext.Provider>
   );
 };

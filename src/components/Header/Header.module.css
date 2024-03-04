@@ -8,9 +8,11 @@
 .logo {
   font-size: 32px;
   font-weight: 700;
-  color: #B2B377;
+  color: var(--primary-color);
+  user-select: none;
 }
 
 .logo > span {
-  color: #D2D180;
+  color: var(--secondary-color);
+  user-select: none;
 }

@@ -1,0 +1,9 @@
+.visualizer {
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.bars {
+  align-items: flex-end;
+}

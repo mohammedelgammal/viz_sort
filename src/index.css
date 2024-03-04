@@ -3,3 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+
+/* write two primar color variables */
+:root {
+  --primary-color: #b2b377;
+  --secondary-color: #d2d180;
+}

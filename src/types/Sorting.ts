@@ -1,20 +1,4 @@
-export interface SortingProps {
-  list: number[];
-  setList: React.Dispatch<React.SetStateAction<number[]>>;
-  setSelected: React.Dispatch<React.SetStateAction<[number, number]>>;
-  setFinished: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
-type SortingAlgorithm = ({
-  list,
-  setList,
-  setSelected,
-  setFinished,
-}: SortingProps) => NodeJS.Timeout;
-
-export type UseSortProps = {
-  doSort: SortingAlgorithm;
-};
+export type SortingAlgorithm = () => NodeJS.Timeout;
 
 export type SortingData = [number[], [number, number], boolean];
 

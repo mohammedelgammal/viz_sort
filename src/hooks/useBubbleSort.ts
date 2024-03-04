@@ -1,17 +1,16 @@
-import useSort from "./useSort";
+import { useContext, useEffect } from "react";
+import configsContext from "src/contexts/configsContext";
 import swap from "src/helpers/swap";
-import { SortingData, SortingProps } from "src/types/Sorting";
+import { SortingData } from "src/types/Sorting";
 
 export default (): SortingData => {
-  const doSort = ({
-    list,
-    setList,
-    setSelected,
-    setFinished,
-  }: SortingProps) => {
-    let timer: NodeJS.Timeout = setTimeout(() => {});
+  const { list, setList, selected, setSelected, isFinished, setFinished } =
+    useContext(configsContext);
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
     for (let i = 0; i < list.length; i++) {
-      for (let j = 0; j < list.length - i - 1; j++) {
+      for (let j = 1; j < list.length - i - 1; j++) {
         timer = setTimeout(() => {
           setSelected([j, j + 1]);
           if (list[j] > list[j + 1]) setList(swap(j, j + 1, list));
@@ -19,9 +18,9 @@ export default (): SortingData => {
         }, 10 * i * list.length + j * 10);
       }
     }
-    return timer;
-  };
-  return useSort({
-    doSort,
-  });
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
+  return [list, selected, isFinished];
 };

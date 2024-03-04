@@ -1,10 +1,13 @@
 import Layout from "./Layout";
-import ThemeProvider from "./contexts/ThemeProvider";
+import ConfigsProvider from "src/contexts/ConfigsProvider";
+import ThemeProvider from "src/contexts/ThemeProvider";
 
 export default (): JSX.Element => {
   return (
     <ThemeProvider>
-      <Layout />
+      <ConfigsProvider>
+        <Layout />
+      </ConfigsProvider>
     </ThemeProvider>
   );
 };

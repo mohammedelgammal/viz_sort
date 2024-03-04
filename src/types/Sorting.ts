@@ -13,8 +13,6 @@ type SortingAlgorithm = ({
 }: SortingProps) => NodeJS.Timeout;
 
 export type UseSortProps = {
-  maxHeight: number;
-  length: number;
   doSort: SortingAlgorithm;
 };
 

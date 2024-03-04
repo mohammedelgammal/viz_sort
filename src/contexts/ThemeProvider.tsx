@@ -1,12 +1,9 @@
 import { useState } from "react";
 import { ConfigProvider, theme } from "antd";
 import ThemeContext from "./themeContext";
+import { ProviderProps } from "src/types/Context";
 
-interface ThemeProviderProps {
-  children: React.ReactNode;
-}
-
-export default ({ children }: ThemeProviderProps): JSX.Element => {
+export default ({ children }: ProviderProps): JSX.Element => {
   const [isDark, setDark] = useState<boolean>(false);
   const algorithm = isDark ? theme.darkAlgorithm : theme.defaultAlgorithm;
   const token = {

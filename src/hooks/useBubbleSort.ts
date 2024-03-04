@@ -22,8 +22,6 @@ export default (): SortingData => {
     return timer;
   };
   return useSort({
-    maxHeight: 500,
-    length: 100,
     doSort,
   });
 };

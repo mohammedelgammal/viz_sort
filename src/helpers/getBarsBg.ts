@@ -1,12 +1,20 @@
+import { useContext } from "react";
+import themeContext from "src/contexts/themeContext";
+
 export default (
   isFinished: boolean,
   index: number,
   selected: [number, number]
-): string =>
-  isFinished
-    ? "#F1F5A8"
+): string => {
+  const { isDark } = useContext(themeContext);
+
+  return isFinished
+    ? "#FFF6BD"
     : index === selected[0]
-    ? "#E5E483"
+    ? "#FFD4B2"
     : index === selected[1]
-    ? "#D2D180"
-    : "#393E46";
+    ? "#CEEDC7"
+    : isDark
+    ? "#393E46"
+    : "#D1D1D1";
+};

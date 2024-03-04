@@ -7,3 +7,24 @@
 .bars {
   align-items: flex-end;
 }
+
+.info {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.title ~ div {
+  gap: 5px;
+  align-items: center;
+}
+
+.title ~ div svg {
+  font-size: 1.1rem;
+  transform: translateY(2px);
+  color: var(--success-color);
+}

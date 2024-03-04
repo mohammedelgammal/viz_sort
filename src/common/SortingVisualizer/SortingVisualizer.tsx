@@ -1,4 +1,5 @@
-import { Flex, Typography } from "antd";
+import { Flex, Spin, Typography } from "antd";
+import { CheckCircleFilled } from "@ant-design/icons";
 import { SortingVisualizerProps } from "src/types/Sorting";
 import getBarsBg from "src/helpers/getBarsBg";
 import Style from "./SortingVisualizer.module.css";
@@ -24,8 +25,16 @@ export default ({
         />
       ))}
     </Flex>
-    <Typography.Title className={Style.title} level={2}>
-      {algorithm}
-    </Typography.Title>
+    <Flex className={Style.info}>
+      <Typography.Text className={Style.title}>{algorithm}</Typography.Text>
+      {isFinished ? (
+        <Flex>
+          <CheckCircleFilled />
+          <span>Sorted</span>
+        </Flex>
+      ) : (
+        <Spin />
+      )}
+    </Flex>
   </Flex>
 );

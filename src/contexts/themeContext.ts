@@ -1,6 +1,7 @@
 import React, { createContext } from "react";
 
 interface ThemeContextType {
+  isDark: boolean;
   setDark: React.Dispatch<React.SetStateAction<boolean>>;
 }
 

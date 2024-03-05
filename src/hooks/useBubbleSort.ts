@@ -5,7 +5,7 @@ import { actions } from "src/types/Context";
 
 export default () => {
   const {
-    state: { list },
+    state: { list, speed },
     dispatch,
   } = useContext(configsContext);
 
@@ -16,14 +16,17 @@ export default () => {
         timers.push(
           setTimeout(() => {
             dispatch({ type: actions.SET_SELECTED, payload: [j, j + 1] });
+            dispatch({ type: actions.SET_IS_SORTING, payload: true });
             if (list[j] > list[j + 1])
               dispatch({
                 type: actions.SET_LIST,
                 payload: swap(j, j + 1, list),
               });
-            if (i === list.length - 2)
+            if (i === list.length - 2) {
+              dispatch({ type: actions.SET_IS_SORTING, payload: false });
               dispatch({ type: actions.SET_IS_SORTED, payload: true });
-          }, 10 * i * list.length + j * 10)
+            }
+          }, speed * i * list.length + j * speed)
         );
       }
     }

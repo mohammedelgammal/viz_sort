@@ -5,7 +5,7 @@ import useBubbleSort from "src/hooks/useBubbleSort";
 
 export default (): JSX.Element => {
   const {
-    state: { list, selected, isSorted },
+    state: { list, selected, isSorting, isSorted },
   } = useContext(configsContext);
 
   useBubbleSort();
@@ -16,6 +16,7 @@ export default (): JSX.Element => {
       list={list}
       selected={selected}
       isSorted={isSorted}
+      isSorting={isSorting}
     />
   );
 };

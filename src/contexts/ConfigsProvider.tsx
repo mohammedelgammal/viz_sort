@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import ConfigsContext from "./configsContext";
 import createRandomList from "src/helpers/createRandomList";
-import { DEFAULT_LENGHT, GRAPH_HEIGHT } from "src/constants";
+import { DEFAULT_LENGHT, DEFAULT_SPEED, GRAPH_HEIGHT } from "src/constants";
 import {
   ActionType,
   ProviderProps,
@@ -15,6 +15,7 @@ export default ({ children }: ProviderProps): JSX.Element => {
     selected: [0, 1],
     isSorted: false,
     isSorting: false,
+    speed: DEFAULT_SPEED,
   };
 
   const reducer = (state: StateType, action: ActionType) => {
@@ -27,6 +28,8 @@ export default ({ children }: ProviderProps): JSX.Element => {
         return { ...state, isSorted: action.payload };
       case actions.SET_IS_SORTING:
         return { ...state, isSorting: action.payload };
+      case actions.SET_SPEED:
+        return { ...state, speed: action.payload };
       default:
         return state;
     }

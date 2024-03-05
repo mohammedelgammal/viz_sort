@@ -8,6 +8,7 @@ export interface StateType {
   selected: [number, number];
   isSorted: boolean;
   isSorting: boolean;
+  speed: number;
 }
 
 export interface ConfigsContextType {
@@ -24,6 +25,7 @@ export enum actions {
   SET_SELECTED = "SET_SELECTED",
   SET_IS_SORTED = "SET_IS_SORTED",
   SET_IS_SORTING = "SET_IS_SORTING",
+  SET_SPEED = "SET_SPEED",
 }
 
 export interface ActionType {

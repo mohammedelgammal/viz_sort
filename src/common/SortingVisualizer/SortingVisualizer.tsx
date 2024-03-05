@@ -7,6 +7,7 @@ import Style from "./SortingVisualizer.module.css";
 export default ({
   algorithm,
   list,
+  isSorting,
   isSorted,
   selected,
 }: SortingVisualizerProps) => (
@@ -27,13 +28,12 @@ export default ({
     </Flex>
     <Flex className={Style.info}>
       <Typography.Text className={Style.title}>{algorithm}</Typography.Text>
-      {isSorted ? (
+      {isSorting && <Spin />}
+      {isSorted && (
         <Flex>
           <CheckCircleFilled />
           <span>Sorted</span>
         </Flex>
-      ) : (
-        <Spin />
       )}
     </Flex>
   </Flex>

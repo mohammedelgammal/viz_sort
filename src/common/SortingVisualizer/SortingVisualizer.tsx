@@ -6,28 +6,28 @@ import Style from "./SortingVisualizer.module.css";
 
 export default ({
   algorithm,
-  graph,
-  isFinished,
+  list,
+  isSorted,
   selected,
 }: SortingVisualizerProps) => (
   <Flex className={Style.visualizer}>
     <Flex className={Style.bars}>
-      {graph.map((value, index) => (
+      {list.map((value, index) => (
         <div
           children
           key={index}
           className={Style.bar}
           style={{
             height: `${value}px`,
-            width: `${100 / graph.length}%`,
-            backgroundColor: getBarsBg(isFinished, index, selected),
+            width: `${100 / list.length}%`,
+            backgroundColor: getBarsBg(isSorted, index, selected),
           }}
         />
       ))}
     </Flex>
     <Flex className={Style.info}>
       <Typography.Text className={Style.title}>{algorithm}</Typography.Text>
-      {isFinished ? (
+      {isSorted ? (
         <Flex>
           <CheckCircleFilled />
           <span>Sorted</span>

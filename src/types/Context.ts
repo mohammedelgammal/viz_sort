@@ -3,15 +3,30 @@ export interface ThemeContextType {
   setDark: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export interface ConfigsContextType {
+export interface StateType {
   list: number[];
-  setList: React.Dispatch<React.SetStateAction<number[]>>;
   selected: [number, number];
-  setSelected: React.Dispatch<React.SetStateAction<[number, number]>>;
-  isFinished: boolean;
-  setFinished: React.Dispatch<React.SetStateAction<boolean>>;
+  isSorted: boolean;
+  isSorting: boolean;
+}
+
+export interface ConfigsContextType {
+  state: StateType;
+  dispatch: React.Dispatch<ActionType>;
 }
 
 export interface ProviderProps {
   children: React.ReactNode;
+}
+
+export enum actions {
+  SET_LIST = "SET_LIST",
+  SET_SELECTED = "SET_SELECTED",
+  SET_IS_SORTED = "SET_IS_SORTED",
+  SET_IS_SORTING = "SET_IS_SORTING",
+}
+
+export interface ActionType {
+  type: actions;
+  payload: any;
 }

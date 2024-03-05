@@ -1,15 +1,21 @@
+import { useContext } from "react";
 import { SortingVisualizer } from "src/common";
+import configsContext from "src/contexts/configsContext";
 import useBubbleSort from "src/hooks/useBubbleSort";
 
 export default (): JSX.Element => {
-  const [graph, selected, isFinished] = useBubbleSort();
+  const {
+    state: { list, selected, isSorted },
+  } = useContext(configsContext);
+
+  useBubbleSort();
 
   return (
     <SortingVisualizer
       algorithm="Bubble Sort"
-      graph={graph}
+      list={list}
       selected={selected}
-      isFinished={isFinished}
+      isSorted={isSorted}
     />
   );
 };

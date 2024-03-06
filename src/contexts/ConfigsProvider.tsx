@@ -1,41 +1,20 @@
 import { useReducer } from "react";
 import ConfigsContext from "./configsContext";
+import configReducer from "src/reducers/configReducer";
 import createRandomList from "src/helpers/createRandomList";
 import { DEFAULT_LENGHT, DEFAULT_SPEED, GRAPH_HEIGHT } from "src/constants";
-import {
-  ActionType,
-  ProviderProps,
-  StateType,
-  actions,
-} from "src/types/Context";
+import { ProviderProps, StateType } from "src/types/Context";
 
 export default ({ children }: ProviderProps): JSX.Element => {
   const initialState: StateType = {
     list: createRandomList(DEFAULT_LENGHT, GRAPH_HEIGHT),
-    selected: [0, 1],
+    selected: [-1, -1],
     isSorted: false,
     isSorting: false,
     speed: DEFAULT_SPEED,
   };
 
-  const reducer = (state: StateType, action: ActionType) => {
-    switch (action.type) {
-      case actions.SET_LIST:
-        return { ...state, list: action.payload };
-      case actions.SET_SELECTED:
-        return { ...state, selected: action.payload };
-      case actions.SET_IS_SORTED:
-        return { ...state, isSorted: action.payload };
-      case actions.SET_IS_SORTING:
-        return { ...state, isSorting: action.payload };
-      case actions.SET_SPEED:
-        return { ...state, speed: action.payload };
-      default:
-        return state;
-    }
-  };
-
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(configReducer, initialState);
 
   return (
     <ConfigsContext.Provider value={{ state, dispatch }}>

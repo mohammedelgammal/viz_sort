@@ -1,22 +1,19 @@
-import { useContext } from "react";
+import { useMemo } from "react";
 import { SortingVisualizer } from "src/common";
-import configsContext from "src/contexts/configsContext";
 import useBubbleSort from "src/hooks/useBubbleSort";
 
 export default (): JSX.Element => {
-  const {
-    state: { list, selected, isSorting, isSorted },
-  } = useContext(configsContext);
+  const { list, selected, isSorting, isSorted } = useBubbleSort();
 
-  useBubbleSort();
-
-  return (
-    <SortingVisualizer
-      algorithm="Bubble Sort"
-      list={list}
-      selected={selected}
-      isSorted={isSorted}
-      isSorting={isSorting}
-    />
-  );
+  return useMemo(() => {
+    return (
+      <SortingVisualizer
+        algorithm="Bubble Sort"
+        list={list}
+        selected={selected}
+        isSorting={isSorting}
+        isSorted={isSorted}
+      />
+    );
+  }, [list, selected, isSorting, isSorted]);
 };

@@ -1,5 +1,5 @@
 import { useContext, useMemo } from "react";
-import { Button, Flex, Select, Slider, Typography } from "antd";
+import { Button, Flex, Select, Slider, Tooltip, Typography } from "antd";
 import { BorderOutlined, EyeOutlined, ReloadOutlined } from "@ant-design/icons";
 import configsContext from "src/contexts/configsContext";
 import createRandomList from "src/helpers/createRandomList";
@@ -23,7 +23,7 @@ export default (): JSX.Element => {
             variant="outlined"
             style={{ width: "100%" }}
             options={algoOptions}
-            defaultActiveFirstOption
+            defaultValue={algoOptions[0].value}
             disabled={isSorting}
           />
           <Flex>
@@ -81,23 +81,25 @@ export default (): JSX.Element => {
                 Stop
               </Button>
             )}
-            <Button
-              type="link"
-              onClick={() => {
-                dispatch({
-                  type: actions.SET_LIST,
-                  payload: createRandomList(list.length, GRAPH_HEIGHT),
-                });
-                dispatch({ type: actions.SET_IS_SORTED, payload: false });
-                dispatch({ type: actions.SET_IS_SORTING, payload: false });
-              }}
-              className={Style.randomBtn}
-              icon={<ReloadOutlined style={{ fontSize: "20px" }} />}
-              disabled={isSorting}
-            />
+            <Tooltip title="Shuffle">
+              <Button
+                type="link"
+                onClick={() => {
+                  dispatch({
+                    type: actions.SET_LIST,
+                    payload: createRandomList(list.length, GRAPH_HEIGHT),
+                  });
+                  dispatch({ type: actions.SET_IS_SORTED, payload: false });
+                  dispatch({ type: actions.SET_IS_SORTING, payload: false });
+                }}
+                className={Style.randomBtn}
+                icon={<ReloadOutlined style={{ fontSize: "20px" }} />}
+                disabled={isSorting}
+              />
+            </Tooltip>
           </Flex>
         </Flex>
       </form>
     );
-  }, [isSorting, isSorted]);
+  }, [isSorting, isSorted, list.length]);
 };

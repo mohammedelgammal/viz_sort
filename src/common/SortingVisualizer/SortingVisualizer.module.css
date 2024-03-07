@@ -28,3 +28,11 @@
   transform: translateY(2px);
   color: var(--success-color);
 }
+
+.infoStack {
+  flex-direction: column;
+}
+
+.tc {
+  font-size: larger;
+}

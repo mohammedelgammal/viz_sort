@@ -8,10 +8,12 @@ import Style from "./SortingVisualizer.module.css";
 export default memo(
   ({
     algorithm,
+    description,
     list,
     isSorting,
     isSorted,
     selected,
+    timeComplexity,
   }: SortingVisualizerProps) => (
     <Flex className={Style.visualizer}>
       <Flex className={Style.bars}>
@@ -28,16 +30,22 @@ export default memo(
           />
         ))}
       </Flex>
-      <Flex className={Style.info}>
-        <Typography.Text className={Style.title}>{algorithm}</Typography.Text>
-        {isSorting && <Spin />}
-        {isSorted && (
-          <Flex>
-            <CheckCircleFilled />
-            <span>Sorted</span>
-          </Flex>
-        )}
+      <Flex className={Style.infoStack}>
+        <Flex className={Style.info}>
+          <Typography.Text className={Style.title}>{algorithm}</Typography.Text>
+          {isSorting && <Spin />}
+          {isSorted && (
+            <Flex>
+              <CheckCircleFilled />
+              <span>Sorted</span>
+            </Flex>
+          )}
+        </Flex>
       </Flex>
+      <Typography.Text>{description}</Typography.Text>
+      <Typography.Text>
+        Time Comlpexity: <strong className={Style.tc}>{timeComplexity}</strong>
+      </Typography.Text>
     </Flex>
   )
 );

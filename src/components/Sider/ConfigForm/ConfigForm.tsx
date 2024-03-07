@@ -1,6 +1,7 @@
 import { useContext, useMemo } from "react";
 import { Button, Flex, Select, Slider, Tooltip, Typography } from "antd";
 import { BorderOutlined, EyeOutlined, ReloadOutlined } from "@ant-design/icons";
+import Timer from "./components/Timer";
 import configsContext from "src/contexts/configsContext";
 import createRandomList from "src/helpers/createRandomList";
 import algoOptions from "./data";
@@ -26,38 +27,6 @@ export default (): JSX.Element => {
             defaultValue={algoOptions[0].value}
             disabled={isSorting}
           />
-          <Flex>
-            <Slider
-              className={Style.slider}
-              tooltip={{ formatter: (value?: number) => `${value} ms` }}
-              onChange={(value) =>
-                dispatch({ type: actions.SET_SPEED, payload: value })
-              }
-              min={5}
-              max={100}
-              step={5}
-              disabled={isSorting}
-              defaultValue={DEFAULT_SPEED}
-            />
-            <Typography.Text className={Style.label}>Speed</Typography.Text>
-          </Flex>
-          <Flex>
-            <Slider
-              className={Style.slider}
-              onChange={(value) =>
-                dispatch({
-                  type: actions.SET_LIST,
-                  payload: createRandomList(value, GRAPH_HEIGHT),
-                })
-              }
-              min={5}
-              max={400}
-              step={15}
-              disabled={isSorting}
-              defaultValue={DEFAULT_LENGHT}
-            />
-            <Typography.Text className={Style.label}>Length</Typography.Text>
-          </Flex>
           <Flex className={Style.submit}>
             {!isSorting ? (
               <Button
@@ -98,6 +67,43 @@ export default (): JSX.Element => {
               />
             </Tooltip>
           </Flex>
+          <Flex>
+            <Slider
+              className={Style.slider}
+              tooltip={{ formatter: (value?: number) => `${value} ms` }}
+              onChange={(value) => {
+                dispatch({ type: actions.SET_SPEED, payload: value });
+                dispatch({ type: actions.SET_IS_SORTED, payload: false });
+                dispatch({ type: actions.SET_IS_SORTING, payload: false });
+              }}
+              min={5}
+              max={100}
+              step={5}
+              disabled={isSorting}
+              defaultValue={DEFAULT_SPEED}
+            />
+            <Typography.Text className={Style.label}>Speed</Typography.Text>
+          </Flex>
+          <Flex>
+            <Slider
+              className={Style.slider}
+              onChange={(value) => {
+                dispatch({
+                  type: actions.SET_LIST,
+                  payload: createRandomList(value, GRAPH_HEIGHT),
+                });
+                dispatch({ type: actions.SET_IS_SORTED, payload: false });
+                dispatch({ type: actions.SET_IS_SORTING, payload: false });
+              }}
+              min={5}
+              max={400}
+              step={15}
+              disabled={isSorting}
+              defaultValue={DEFAULT_LENGHT}
+            />
+            <Typography.Text className={Style.label}>Length</Typography.Text>
+          </Flex>
+          <Timer />
         </Flex>
       </form>
     );

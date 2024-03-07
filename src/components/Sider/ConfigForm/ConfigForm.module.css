@@ -28,3 +28,14 @@
   margin-top: 7px;
   white-space: nowrap;
 }
+
+.randomBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.randomIcon {
+  font-size: 20px;
+  color: var(--primary);
+}

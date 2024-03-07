@@ -1,21 +1,20 @@
 import { useContext, useMemo } from "react";
 import { Button, Flex, Select, Slider, Typography } from "antd";
-import { EyeOutlined, ReloadOutlined } from "@ant-design/icons";
+import { BorderOutlined, EyeOutlined, ReloadOutlined } from "@ant-design/icons";
 import configsContext from "src/contexts/configsContext";
+import createRandomList from "src/helpers/createRandomList";
 import algoOptions from "./data";
+import { DEFAULT_LENGHT, DEFAULT_SPEED, GRAPH_HEIGHT } from "src/constants";
 import { actions } from "src/types/Context";
 import Style from "./ConfigForm.module.css";
 
 export default (): JSX.Element => {
   const {
-    state: { isSorting },
+    state: { isSorting, isSorted, list },
     dispatch,
   } = useContext(configsContext);
 
   return useMemo(() => {
-    const speedFormatter = (value?: number) => `${value} ms`;
-    const lengthFormatter = (value?: number) => `${value! * 10}`;
-
     return (
       <form className={Style.form}>
         <Flex className={Style.inputStack}>
@@ -30,44 +29,75 @@ export default (): JSX.Element => {
           <Flex>
             <Slider
               className={Style.slider}
+              tooltip={{ formatter: (value?: number) => `${value} ms` }}
               onChange={(value) =>
                 dispatch({ type: actions.SET_SPEED, payload: value })
               }
-              tooltip={{ formatter: speedFormatter }}
-              disabled={isSorting}
               min={5}
               max={100}
               step={5}
+              disabled={isSorting}
+              defaultValue={DEFAULT_SPEED}
             />
             <Typography.Text className={Style.label}>Speed</Typography.Text>
           </Flex>
           <Flex>
             <Slider
               className={Style.slider}
-              tooltip={{ formatter: lengthFormatter }}
-              min={0.5}
+              onChange={(value) =>
+                dispatch({
+                  type: actions.SET_LIST,
+                  payload: createRandomList(value, GRAPH_HEIGHT),
+                })
+              }
+              min={5}
+              max={400}
+              step={15}
               disabled={isSorting}
+              defaultValue={DEFAULT_LENGHT}
             />
             <Typography.Text className={Style.label}>Length</Typography.Text>
           </Flex>
           <Flex className={Style.submit}>
+            {!isSorting ? (
+              <Button
+                type="primary"
+                icon={<EyeOutlined />}
+                onClick={() => {
+                  dispatch({ type: actions.SET_IS_SORTING, payload: true });
+                }}
+                disabled={isSorted}
+              >
+                Visualize
+              </Button>
+            ) : (
+              <Button
+                type="primary"
+                icon={<BorderOutlined />}
+                onClick={() => {
+                  dispatch({ type: actions.SET_IS_SORTING, payload: false });
+                }}
+              >
+                Stop
+              </Button>
+            )}
             <Button
-              type="primary"
-              icon={<EyeOutlined />}
+              type="link"
               onClick={() => {
-                dispatch({ type: actions.SET_IS_SORTING, payload: true });
+                dispatch({
+                  type: actions.SET_LIST,
+                  payload: createRandomList(list.length, GRAPH_HEIGHT),
+                });
+                dispatch({ type: actions.SET_IS_SORTED, payload: false });
+                dispatch({ type: actions.SET_IS_SORTING, payload: false });
               }}
-            >
-              Visualize
-            </Button>
-            <Button
-              type="default"
-              icon={<ReloadOutlined />}
+              className={Style.randomBtn}
+              icon={<ReloadOutlined style={{ fontSize: "20px" }} />}
               disabled={isSorting}
             />
           </Flex>
         </Flex>
       </form>
     );
-  }, [isSorting]);
+  }, [isSorting, isSorted]);
 };

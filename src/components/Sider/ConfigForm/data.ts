@@ -1,7 +1,10 @@
+import { algorithms } from "src/types/Context";
+
 export default [
-  { value: "bubble", label: "Bubble Sort" },
-  { value: "selection", label: "Selection Sort" },
-  { value: "insertion", label: "Insertion Sort" },
-  { value: "quick", label: "Quick Sort" },
-  { value: "merge", label: "Merge Sort" },
+  { value: algorithms.BUBBLE_SORT, label: "Bubble Sort" },
+  { value: algorithms.SELECTION_SORT, label: "Selection Sort" },
+  { value: algorithms.INSERTION_SORT, label: "Insertion Sort" },
+  { value: algorithms.QUICK_SORT, label: "Quick Sort" },
+  { value: algorithms.MERGE_SORT, label: "Merge Sort" },
+  { value: algorithms.HEAP_SORT, label: "Heap Sort" },
 ];

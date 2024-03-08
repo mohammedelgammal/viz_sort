@@ -11,7 +11,7 @@ import Style from "./ConfigForm.module.css";
 
 export default (): JSX.Element => {
   const {
-    state: { isSorting, isSorted, list },
+    state: { list, algorithm, isSorting, isSorted },
     dispatch,
   } = useContext(configsContext);
 
@@ -20,11 +20,15 @@ export default (): JSX.Element => {
       <form className={Style.form}>
         <Flex className={Style.inputStack}>
           <Select
-            placeholder="Sorting Algorithm"
+            onChange={(value) => {
+              dispatch({ type: actions.SET_ALGORITHM, payload: value });
+              dispatch({ type: actions.SET_IS_SORTED, payload: false });
+              dispatch({ type: actions.SET_IS_SORTING, payload: false });
+            }}
             variant="outlined"
             style={{ width: "100%" }}
             options={algoOptions}
-            defaultValue={algoOptions[0].value}
+            defaultValue={algorithm}
             disabled={isSorting}
           />
           <Timer />

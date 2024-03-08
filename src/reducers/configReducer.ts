@@ -2,6 +2,8 @@ import { ActionType, StateType, actions } from "src/types/Context";
 
 export default (state: StateType, action: ActionType) => {
   switch (action.type) {
+    case actions.SET_ALGORITHM:
+      return { ...state, algorithm: action.payload };
     case actions.SET_LIST:
       return { ...state, list: action.payload };
     case actions.SET_SELECTED:

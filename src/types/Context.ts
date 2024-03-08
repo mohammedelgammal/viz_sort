@@ -3,7 +3,17 @@ export interface ThemeContextType {
   setDark: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
+export enum algorithms {
+  BUBBLE_SORT = "BUBBLE_SORT",
+  SELECTION_SORT = "SELECTION_SORT",
+  INSERTION_SORT = "INSERTION_SORT",
+  MERGE_SORT = "MERGE_SORT",
+  QUICK_SORT = "QUICK_SORT",
+  HEAP_SORT = "HEAP_SORT",
+}
+
 export interface StateType {
+  algorithm: algorithms;
   list: number[];
   selected: [number, number];
   isSorted: boolean;
@@ -21,6 +31,7 @@ export interface ProviderProps {
 }
 
 export enum actions {
+  SET_ALGORITHM = "SET_ALGORITHM",
   SET_LIST = "SET_LIST",
   SET_SELECTED = "SET_SELECTED",
   SET_IS_SORTED = "SET_IS_SORTED",
@@ -32,3 +43,8 @@ export interface ActionType {
   type: actions;
   payload: any;
 }
+
+export interface SortingAlgorithmProps {
+  algorithm: algorithms;
+}
+export type SortingAlgorithms = { [algorithm: string]: JSX.Element };

@@ -27,6 +27,7 @@ export default (): JSX.Element => {
             defaultValue={algoOptions[0].value}
             disabled={isSorting}
           />
+          <Timer />
           <Flex className={Style.submit}>
             {!isSorting ? (
               <Button
@@ -103,7 +104,6 @@ export default (): JSX.Element => {
             />
             <Typography.Text className={Style.label}>Length</Typography.Text>
           </Flex>
-          <Timer />
         </Flex>
       </form>
     );

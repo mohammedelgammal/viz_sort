@@ -7,7 +7,7 @@ import { ProviderProps, StateType, algorithms } from "src/types/Context";
 
 export default ({ children }: ProviderProps): JSX.Element => {
   const initialState: StateType = {
-    algorithm: algorithms.QUICK_SORT,
+    algorithm: algorithms.BUBBLE_SORT,
     list: createRandomList(DEFAULT_LENGHT, GRAPH_HEIGHT),
     selected: [-1, -1],
     isSorted: false,

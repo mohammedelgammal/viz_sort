@@ -23,6 +23,10 @@ export default (): JSX.Element => {
             onChange={(value) => {
               dispatch({ type: actions.SET_ALGORITHM, payload: value });
               dispatch({ type: actions.SET_IS_SORTING, payload: false });
+              dispatch({
+                type: actions.SET_LIST,
+                payload: createRandomList(list.length, GRAPH_HEIGHT),
+              });
             }}
             variant="outlined"
             style={{ width: "100%" }}

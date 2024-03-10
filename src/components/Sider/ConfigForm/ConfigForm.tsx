@@ -22,7 +22,6 @@ export default (): JSX.Element => {
           <Select
             onChange={(value) => {
               dispatch({ type: actions.SET_ALGORITHM, payload: value });
-              dispatch({ type: actions.SET_IS_SORTED, payload: false });
               dispatch({ type: actions.SET_IS_SORTING, payload: false });
             }}
             variant="outlined"

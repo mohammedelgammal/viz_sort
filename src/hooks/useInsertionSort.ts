@@ -18,7 +18,7 @@ export default () => {
             if (isSorting && !isSorted) {
               timers.push(
                 setTimeout(() => {
-                  resolve();
+                  resolve(null);
                   dispatch({ type: actions.SET_SELECTED, payload: [j + 1, i] });
                   dispatch({ type: actions.SET_IS_SORTING, payload: true });
                   if (j >= 0 && list[j] > current) {

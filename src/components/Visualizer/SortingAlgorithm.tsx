@@ -1,6 +1,11 @@
 import { memo, useMemo } from "react";
 import { Alert } from "antd";
-import { BubbleSort, SelectionSort, InsertionSort } from "./Algorithms";
+import {
+  BubbleSort,
+  SelectionSort,
+  InsertionSort,
+  QuickSort,
+} from "./Algorithms";
 import {
   SortingAlgorithmProps,
   SortingAlgorithms,
@@ -13,8 +18,8 @@ export default memo(({ algorithm }: SortingAlgorithmProps) => {
       [algorithms.BUBBLE_SORT]: <BubbleSort />,
       [algorithms.SELECTION_SORT]: <SelectionSort />,
       [algorithms.INSERTION_SORT]: <InsertionSort />,
+      [algorithms.QUICK_SORT]: <QuickSort />,
       [algorithms.MERGE_SORT]: <>MERGE_SORT algo</>,
-      [algorithms.QUICK_SORT]: <>QUICK_SORT algo</>,
       [algorithms.HEAP_SORT]: <>HEAP_SORT algo</>,
     }),
     []

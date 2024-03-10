@@ -6,6 +6,7 @@ import {
   InsertionSort,
   QuickSort,
   MergeSort,
+  HeapSort,
 } from "./Algorithms";
 import {
   SortingAlgorithmProps,
@@ -21,7 +22,7 @@ export default memo(({ algorithm }: SortingAlgorithmProps) => {
       [algorithms.INSERTION_SORT]: <InsertionSort />,
       [algorithms.QUICK_SORT]: <QuickSort />,
       [algorithms.MERGE_SORT]: <MergeSort />,
-      [algorithms.HEAP_SORT]: <>HEAP_SORT algo</>,
+      [algorithms.HEAP_SORT]: <HeapSort />,
     }),
     []
   );

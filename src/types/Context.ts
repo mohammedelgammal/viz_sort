@@ -38,6 +38,7 @@ export enum actions {
   SET_IS_SORTING = "SET_IS_SORTING",
   SET_SPEED = "SET_SPEED",
   SET_FINISHED = "SET_FINISHED",
+  RESET = "RESET",
 }
 
 export interface ActionType {

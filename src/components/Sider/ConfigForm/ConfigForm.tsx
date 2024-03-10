@@ -22,9 +22,8 @@ export default (): JSX.Element => {
           <Select
             onChange={(value) => {
               dispatch({ type: actions.SET_ALGORITHM, payload: value });
-              dispatch({ type: actions.SET_IS_SORTING, payload: false });
               dispatch({
-                type: actions.SET_LIST,
+                type: actions.RESET,
                 payload: createRandomList(list.length, GRAPH_HEIGHT),
               });
             }}
@@ -63,11 +62,9 @@ export default (): JSX.Element => {
                 type="link"
                 onClick={() => {
                   dispatch({
-                    type: actions.SET_LIST,
+                    type: actions.RESET,
                     payload: createRandomList(list.length, GRAPH_HEIGHT),
                   });
-                  dispatch({ type: actions.SET_IS_SORTED, payload: false });
-                  dispatch({ type: actions.SET_IS_SORTING, payload: false });
                 }}
                 className={Style.randomBtn}
                 icon={<ReloadOutlined style={{ fontSize: "20px" }} />}

@@ -16,6 +16,14 @@ export default (state: StateType, action: ActionType) => {
       return { ...state, speed: action.payload };
     case actions.SET_FINISHED:
       return { ...state, isSorted: action.payload, isSorting: !action.payload };
+    case actions.RESET:
+      return {
+        ...state,
+        isSorted: false,
+        isSorting: false,
+        selected: [-1, -1],
+        list: action.payload,
+      };
     default:
       return state;
   }

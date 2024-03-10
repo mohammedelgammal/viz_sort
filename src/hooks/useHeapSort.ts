@@ -57,14 +57,7 @@ export default () => {
           payload: array,
         });
       }
-      dispatch({
-        type: actions.SET_IS_SORTED,
-        payload: true,
-      });
-      dispatch({
-        type: actions.SET_IS_SORTING,
-        payload: false,
-      });
+      dispatch({ type: actions.SET_FINISHED, payload: true });
     };
     heapSort(list);
 

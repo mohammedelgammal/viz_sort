@@ -76,14 +76,7 @@ export default () => {
 
     const sort = async () => {
       await quickSort(list, 0, list.length - 1);
-      dispatch({
-        type: actions.SET_IS_SORTED,
-        payload: true,
-      });
-      dispatch({
-        type: actions.SET_IS_SORTING,
-        payload: false,
-      });
+      dispatch({ type: actions.SET_FINISHED, payload: true });
     };
 
     sort();

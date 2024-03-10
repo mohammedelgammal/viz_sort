@@ -50,10 +50,8 @@ export default () => {
         await mergeSort(list, l, m);
         await mergeSort(list, m + 1, r);
         await merge(list, l, m, r);
-        if (l === 0 && r === list.length - 1) {
-          dispatch({ type: actions.SET_IS_SORTED, payload: true });
-          dispatch({ type: actions.SET_IS_SORTING, payload: false });
-        }
+        if (l === 0 && r === list.length - 1)
+          dispatch({ type: actions.SET_FINISHED, payload: true });
       }
     };
 

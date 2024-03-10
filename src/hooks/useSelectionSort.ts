@@ -23,10 +23,8 @@ export default () => {
                   type: actions.SET_LIST,
                   payload: swap(i, j, list),
                 });
-              if (i === list.length - 2) {
-                dispatch({ type: actions.SET_IS_SORTING, payload: false });
-                dispatch({ type: actions.SET_IS_SORTED, payload: true });
-              }
+              if (i === list.length - 2)
+                dispatch({ type: actions.SET_FINISHED, payload: true });
             }, speed * i * list.length + j * speed)
           );
       }

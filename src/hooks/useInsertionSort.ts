@@ -30,10 +30,8 @@ export default () => {
                     list[j + 1] = current;
                     k = 0;
                   }
-                  if (i === list.length - 1) {
-                    dispatch({ type: actions.SET_IS_SORTING, payload: false });
-                    dispatch({ type: actions.SET_IS_SORTED, payload: true });
-                  }
+                  if (i === list.length - 1)
+                    dispatch({ type: actions.SET_FINISHED, payload: true });
                 }, speed)
               );
             }

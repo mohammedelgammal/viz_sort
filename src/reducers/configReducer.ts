@@ -14,6 +14,8 @@ export default (state: StateType, action: ActionType) => {
       return { ...state, isSorting: action.payload };
     case actions.SET_SPEED:
       return { ...state, speed: action.payload };
+    case actions.SET_FINISHED:
+      return { ...state, isSorted: action.payload, isSorting: !action.payload };
     default:
       return state;
   }

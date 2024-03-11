@@ -1,30 +1,39 @@
-# React + TypeScript + Vite
+<!-- write the readme here -->
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# VizSort - A Sorting Algorithm Visualizer
 
-Currently, two official plugins are available:
+Welcome to VizSort - A Sorting Algorithm Visualizer, an engaging web application crafted with React, Vite. This dynamic project empowers you to witness the functionality of prevalent sorting algorithms in real-time. Gain valuable insights and enhance your understanding of these algorithms, observing their performance and time efficiency. Join us on a journey to visualize the inner workings of common sorting algorithms and unravel the fascinating world of sorting dynamics.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Visualize most common sorting algorithms in action (Bubble Sort, Selection Sort, Insertion Sort, Merge Sort, Quick Sort) in real-time
+- Customize the array size and speed of the sorting process
+- Observe the performance and time efficiency of each sorting algorithm
+- Gain valuable insights and enhance your understanding of sorting algorithms
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technologies
 
-- Configure the top-level `parserOptions` property like this:
+- React - 18
+- TypeScript
+- Vite
+- Ant Design (UI Library)
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Installation
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+1. Clone the repository
+   ```sh
+   git clone
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Run the application
+   ```sh
+   npm start
+   ```
+4. Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
+
+Enjoy the application! If you have any questions or suggestions, feel free to reach out to us
+
+    Happy Sorting! Thank you for your support!

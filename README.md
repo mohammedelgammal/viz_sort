@@ -1,8 +1,12 @@
-<!-- write the readme here -->
-
 # VizSort - A Sorting Algorithm Visualizer
 
 Welcome to VizSort - A Sorting Algorithm Visualizer, an engaging web application crafted with React, Vite. This dynamic project empowers you to witness the functionality of prevalent sorting algorithms in real-time. Gain valuable insights and enhance your understanding of these algorithms, observing their performance and time efficiency. Join us on a journey to visualize the inner workings of common sorting algorithms and unravel the fascinating world of sorting dynamics.
+
+## Deployment
+
+The application is deployed on GithubPages and can be accessed using the following link:
+
+[VizSort - Sorting Algorithm Visualizer](https://mohammedelgammal.github.io/viz_sort)
 
 ## Features
 
@@ -36,4 +40,4 @@ Welcome to VizSort - A Sorting Algorithm Visualizer, an engaging web application
 
 Enjoy the application! If you have any questions or suggestions, feel free to reach out to us
 
-    Happy Sorting! Thank you for your support!
+    Happy Sorting! Thank you for your support! 🚀
